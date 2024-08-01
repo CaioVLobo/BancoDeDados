@@ -35,4 +35,15 @@
     } else {
         echo "Nenhum registro encontrado!";
     }
+    echo"<BR><b>Verificar se existe usuário='Carlos' com senha='123' e mostrar seu email. Caso não exista, mostrar uma mensagem.</b><br>";
+    $sql = "SELECT id, nome, senha, email from usuario where nome='carlos' and senha='123'";
+    $resultado = mysqli_query($conexao, $sql);
+    echo "<br>";
+    if (mysqli_num_rows($resultado) > 0){
+        while ($registro = mysqli_fetch_assoc($resultado)){
+            echo "email:". $registro["email"]. "<br>";
+        }
+    } else {
+        echo "Nenhum registro encontrado!";
+    }
     ?>
